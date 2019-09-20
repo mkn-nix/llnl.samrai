@@ -1,0 +1,18 @@
+
+
+name: llnl.samrai
+
+parent: lib
+
+profile:
+  - name: cmn
+    inc: include
+
+  - name: lib
+    parent: cmn
+    lib:
+      SAMRAI_algs  SAMRAI_appu
+      SAMRAI_geom  SAMRAI_hier
+      SAMRAI_math  SAMRAI_mesh
+      SAMRAI_pdat  SAMRAI_solv
+      SAMRAI_tbox  SAMRAI_xfer
