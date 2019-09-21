@@ -10,9 +10,11 @@ profile:
 
   - name: lib
     parent: cmn
+    path: lib
     lib:
-      SAMRAI_algs  SAMRAI_appu
-      SAMRAI_geom  SAMRAI_hier
-      SAMRAI_math  SAMRAI_mesh
-      SAMRAI_pdat  SAMRAI_solv
-      SAMRAI_tbox  SAMRAI_xfer
+      SAMRAI_algs SAMRAI_appu
+      SAMRAI_geom SAMRAI_math
+      SAMRAI_mesh SAMRAI_pdat
+      SAMRAI_solv SAMRAI_xfer
+      SAMRAI_hier SAMRAI_tbox
+      mpi++ mpi hdf5_serial
