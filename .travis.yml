@@ -1,0 +1,29 @@
+language: generic
+matrix:
+  include:
+  - os: linux
+    dist: bionic
+    sudo: required
+    language: cpp
+    compiler: gcc
+    addons:
+      apt:
+        sources:
+        - sourceline: 'ppa:ubuntu-toolchain-r/test'
+        packages:
+          - g++-9
+          - gfortran-9
+          - libhdf5-mpich-dev
+    env:
+      - MATRIX_EVAL="CC=gcc-9 CXX=g++-9 FC=gfortran-9"
+before_install:
+  - |
+    if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
+      sudo ln -fs /usr/bin/gcc-9 /usr/local/bin/gcc
+      sudo ln -fs /usr/bin/g++-9 /usr/local/bin/g++
+      sudo ln -fs /usr/bin/gfortran-9 /usr/local/bin/gfortran
+      gcc -v
+    fi
+script:
+  - set -e
+  - THREADS=1 ./mkn.sh # memory problems

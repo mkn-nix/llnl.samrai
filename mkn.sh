@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 set -e
+THREADS=${THREADS:=""}
 CWD="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 VERSION="master"
 DIR="samrai"
@@ -15,4 +16,4 @@ read -r -d '' CMAKE <<- EOM || echo "running cmake"
 cmake -DCMAKE_INSTALL_PREFIX=$CWD
       -DCMAKE_BUILD_TYPE=Debug ..
 EOM
-$CMAKE &&  make -j && make install
+$CMAKE &&  make -j$THREADS && make install
