@@ -26,4 +26,4 @@ before_install:
     fi
 script:
   - set -e
-  - ./mkn.sh
+  - THREADS=1 ./mkn.sh # memory problems

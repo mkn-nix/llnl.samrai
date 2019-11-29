@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 set -e
+THREADS=${THREADS:=""}
 CWD="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 DIR="samrai"
 GIT_URL="https://github.com/llnl/$DIR"
@@ -13,4 +14,4 @@ read -r -d '' CMAKE <<- EOM || echo "running cmake"
 cmake -DCMAKE_INSTALL_PREFIX=$CWD
       -DCMAKE_BUILD_TYPE=Debug ..
 EOM
-$CMAKE &&  make -j && make install
+$CMAKE &&  make -j$THREADS && make install
