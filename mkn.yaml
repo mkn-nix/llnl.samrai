@@ -1,7 +1,7 @@
 
 
 name: llnl.samrai
-
+scm: https://github.com/dekken/llnl.samrai
 parent: lib
 
 profile:
