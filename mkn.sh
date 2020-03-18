@@ -10,8 +10,11 @@ FFF=("include" "lib" "$DIR" "share")
 [ ! -d "$CWD/$DIR" ] && git clone --depth 1 $GIT_URL -b $VERSION $DIR --recursive
 cd $CWD/$DIR
 rm -rf build && mkdir build && cd build
-read -r -d '' CMAKE <<- EOM || echo "running cmake"
-cmake -DCMAKE_INSTALL_PREFIX=$CWD
+
+cmake -DCMAKE_INSTALL_PREFIX=$CWD                         \
+      -DBUILD_SHARED_LIBS=ON                              \
+      -DCMAKE_POSITION_INDEPENDENT_CODE:BOOL=true         \
+      -DCMAKE_CXX_FLAGS="-g3 -rdynamic -O3 -march=native" \
       -DCMAKE_BUILD_TYPE=Debug ..
-EOM
-$CMAKE &&  make -j$THREADS && make install
+
+make VERBOSE=1 -j$THREADS && make install
