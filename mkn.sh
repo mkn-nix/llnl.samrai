@@ -12,9 +12,10 @@ cd $CWD/$DIR
 rm -rf build && mkdir build && cd build
 
 cmake -DCMAKE_INSTALL_PREFIX=$CWD                         \
-      -DBUILD_SHARED_LIBS=ON                              \
       -DCMAKE_POSITION_INDEPENDENT_CODE:BOOL=true         \
       -DCMAKE_CXX_FLAGS="-g3 -rdynamic -O3 -march=native" \
       -DCMAKE_BUILD_TYPE=Debug ..
+#-DBUILD_SHARED_LIBS=ON                              \ # fails
 
 make VERBOSE=1 -j$THREADS && make install
+rm -rf build
