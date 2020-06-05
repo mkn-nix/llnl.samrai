@@ -13,9 +13,9 @@ rm -rf build && mkdir build && cd build
 
 cmake -DCMAKE_INSTALL_PREFIX=$CWD                         \
       -DCMAKE_POSITION_INDEPENDENT_CODE:BOOL=true         \
-      -DCMAKE_CXX_FLAGS="-g3 -rdynamic -O3 -march=native" \
-      -DCMAKE_BUILD_TYPE=Debug ..
+      -DCMAKE_CXX_FLAGS="-g0 -rdynamic -O3 -march=native" \
+      -DCMAKE_BUILD_TYPE=Release ..
 #-DBUILD_SHARED_LIBS=ON                              \ # fails
 
 make VERBOSE=1 -j$THREADS && make install
-rm -rf build
+cd .. && rm -rf build
