@@ -11,10 +11,12 @@ FFF=("include" "lib" "$DIR" "share")
 cd $CWD/$DIR
 rm -rf build && mkdir build && cd build
 
-cmake -DCMAKE_INSTALL_PREFIX=$CWD                         \
-      -DCMAKE_POSITION_INDEPENDENT_CODE:BOOL=true         \
-      -DCMAKE_CXX_FLAGS="-g0 -rdynamic -O3 -march=native" \
-      -DCMAKE_BUILD_TYPE=Release .. #-DBUILD_SHARED_LIBS=ON # default static libs
+cmake .. \
+  -DENABLE_OPENMP=OFF \
+  -DCMAKE_INSTALL_PREFIX=$CWD \
+  -DCMAKE_POSITION_INDEPENDENT_CODE:BOOL=true \
+  -DCMAKE_CXX_FLAGS="-g0 -O3 -march=native -mtune=native" \
+  -DCMAKE_BUILD_TYPE=Release # -DBUILD_SHARED_LIBS=ON
 
 make VERBOSE=1 -j$THREADS && make install
 cd .. && rm -rf build
