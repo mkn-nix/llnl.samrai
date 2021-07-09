@@ -12,7 +12,7 @@ cd $CWD/$DIR
 rm -rf build && mkdir build && cd build
 
 cmake .. \
-  -DENABLE_OPENMP=OFF \
+  -DENABLE_OPENMP=OFF -DENABLE_SAMRAI_TESTS=OFF \
   -DCMAKE_INSTALL_PREFIX=$CWD \
   -DCMAKE_POSITION_INDEPENDENT_CODE:BOOL=true \
   -DCMAKE_CXX_FLAGS="-g0 -O3 -march=native -mtune=native" \
