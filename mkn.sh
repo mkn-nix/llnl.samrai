@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 set -e
-THREADS=${THREADS:=""}
+THREADS=${THREADS:="2"}
 CWD="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 DIR="samrai"
 GIT_URL="https://github.com/llnl/$DIR"
-VERSION="master"
+VERSION="develop"
 FFF=("include" "lib" "$DIR" "share")
 [ ! -z "$MKN_CLEAN" ] && (( $MKN_CLEAN == 1 )) && for f in ${FFF[@]}; do rm -rf $CWD/$f; done
 [ ! -d "$CWD/$DIR" ] && git clone --depth 1 $GIT_URL -b $VERSION $DIR --recursive
