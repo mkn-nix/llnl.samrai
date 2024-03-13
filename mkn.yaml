@@ -17,4 +17,4 @@ profile:
       SAMRAI_mesh SAMRAI_pdat
       SAMRAI_solv SAMRAI_xfer
       SAMRAI_hier SAMRAI_tbox
-      mpi++ mpi
+      mpi
