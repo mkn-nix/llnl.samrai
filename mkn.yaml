@@ -1,8 +1,10 @@
 
 
 name: llnl.samrai
-scm: https://github.com/dekken/llnl.samrai
 parent: lib
+
+property:
+  HDF5_LIB: hdf5
 
 profile:
   - name: cmn
@@ -17,4 +19,4 @@ profile:
       SAMRAI_mesh SAMRAI_pdat
       SAMRAI_solv SAMRAI_xfer
       SAMRAI_hier SAMRAI_tbox
-      mpi
+      ${HDF5_LIB} mpi
