@@ -1,0 +1,17 @@
+# expects system installed!
+
+name: llnl.samrai
+parent: lib
+
+property:
+  HDF5_LIB: hdf5
+
+profile:
+  - name: lib
+    lib:
+      SAMRAI_algs SAMRAI_appu
+      SAMRAI_geom SAMRAI_math
+      SAMRAI_mesh SAMRAI_pdat
+      SAMRAI_solv SAMRAI_xfer
+      SAMRAI_hier SAMRAI_tbox
+      ${HDF5_LIB} mpi
